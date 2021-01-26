@@ -22,14 +22,14 @@ namespace Microsoft.OData.Edm.Csdl.Parsing
             Debug.Assert(element.ValueKind == JsonValueKind.Object);
 
             // $Type
-            // For single-valued terms the value of $Type is the qualified name of the property/term’s type.
-            // For collection-valued terms the value of $Type is the qualified name of the term’s item type, and the member $Collection MUST be present with the literal value true.
+            // For single-valued terms the value of $Type is the qualified name of the property/termï¿½s type.
+            // For collection-valued terms the value of $Type is the qualified name of the termï¿½s item type, and the member $Collection MUST be present with the literal value true.
             // Absence of the $Type member means the type is Edm.String.
             string typeName = element.ParseOptionalProperty("$Type", context, (v, p) => v.ParseAsString(p));
             typeName = typeName == null ? "Edm.String" : typeName;
 
             // $Collection
-            // For collection-valued properties the value of $Type is the qualified name of the property’s item type,
+            // For collection-valued properties the value of $Type is the qualified name of the propertyï¿½s item type,
             // and the member $Collection MUST be present with the literal value true.
             bool? collection = element.ParseOptionalProperty("$Collection", context, (v, p) => v.ParseAsBoolean(p));
 

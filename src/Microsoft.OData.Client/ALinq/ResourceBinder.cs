@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces
 
@@ -17,11 +22,18 @@ namespace Microsoft.OData.Client
     using System.Linq.Expressions;
     using System.Reflection;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+    using NonSystemToken = System.Data.Client.ALinq.UriParser.NonSystemToken;
+    using PathSegmentToken = System.Data.Client.ALinq.UriParser.PathSegmentToken;
+#else
     using Microsoft.OData.Client.Metadata;
-    using Microsoft.OData.Edm;
-    using Microsoft.OData.UriParser.Aggregation;
     using NonSystemToken = Microsoft.OData.Client.ALinq.UriParser.NonSystemToken;
     using PathSegmentToken = Microsoft.OData.Client.ALinq.UriParser.PathSegmentToken;
+#endif
+    using Microsoft.OData.Edm;
+    using Microsoft.OData.UriParser.Aggregation;
 
     #endregion Namespaces
 

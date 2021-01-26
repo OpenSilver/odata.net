@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="DataServiceContext.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
@@ -7,7 +7,12 @@
 // #define TESTUNIXNEWLINE
 
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces
 
@@ -24,11 +29,22 @@ namespace Microsoft.OData.Client
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Annotation;
+#else
     using Microsoft.OData.Client.Annotation;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+    using ClientStrings = System.Data.Client.Strings;
+#else
     using Microsoft.OData.Client.Metadata;
+    using ClientStrings = Microsoft.OData.Client.Strings;
+#endif
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
-    using ClientStrings = Microsoft.OData.Client.Strings;
 
     #endregion Namespaces
     /// <summary>

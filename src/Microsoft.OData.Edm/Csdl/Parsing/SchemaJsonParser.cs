@@ -107,7 +107,7 @@ namespace Microsoft.OData.Edm.Csdl.Parsing
         ///  "$Annotations": {
         ///    "self.Person": {
         ///      "@Core.Description#Tablet": "Dummy",
-        ///      …
+        ///      ï¿½
         ///    }
         ///  }
         ///}
@@ -771,7 +771,7 @@ namespace Microsoft.OData.Edm.Csdl.Parsing
                         break;
 
                     case "$Collection":
-                        // For collection-valued properties the value of $Type is the qualified name of the property’s item type,
+                        // For collection-valued properties the value of $Type is the qualified name of the propertyï¿½s item type,
                         // and the member $Collection MUST be present with the literal value true.
                         collection = propertyValue.ParseAsBoolean(context);
                         break;

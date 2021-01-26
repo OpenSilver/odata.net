@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Collections;
@@ -13,10 +18,21 @@ namespace Microsoft.OData.Client.Materialization
     using System.Linq;
     using System.Reflection;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+    using DSClient = System.Data.Client;
+#else
     using Microsoft.OData.Client.Metadata;
-    using Microsoft.OData.Edm;
     using DSClient = Microsoft.OData.Client;
+#endif
+    using Microsoft.OData.Edm;
 
 
     /// <summary>

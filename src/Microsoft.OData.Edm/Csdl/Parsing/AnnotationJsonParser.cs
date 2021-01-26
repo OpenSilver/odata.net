@@ -375,7 +375,7 @@ namespace Microsoft.OData.Edm.Csdl.Parsing
 
             CsdlExpressionBase expression = propertyValue.ProcessProperty("$LabeledElement", context, ParseExpression);
 
-            // a member $Name whose value is a string containing the labeled element’s name.
+            // a member $Name whose value is a string containing the labeled elementï¿½s name.
             string label = element.ProcessRequiredProperty("$Name", context, (v, p) => v.ParseAsString(p));
 
             labeledExp = new CsdlLabeledExpression(label, expression, context.Location());
@@ -418,7 +418,7 @@ namespace Microsoft.OData.Edm.Csdl.Parsing
             Debug.Assert(context != null);
 
             // A record expression MAY specify the structured type of its result, which MUST be an entity type or complex type in scope.
-            // If not explicitly specified, the type is derived from the expression’s context
+            // If not explicitly specified, the type is derived from the expressionï¿½s context
 
             // The type of a record expression is represented as the @type control information
             // for example: "@type": "https://example.org/vocabs/person#org.example.person.Manager",
@@ -489,7 +489,7 @@ namespace Microsoft.OData.Edm.Csdl.Parsing
             // followed by an at (@) character, followed by the qualified name of a term, optionally followed by a hash (#) and a qualifier.
             // for example: 
             // "@Measures.ISOCurrency": "USD",
-            // "@Measures.ISOCurrency@Core.Description": "The parent company’s currency"
+            // "@Measures.ISOCurrency@Core.Description": "The parent companyï¿½s currency"
             //
             // So, Core.Description is annotation for "Measures.ISOCurrency annotation.
 

@@ -1,17 +1,27 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="AnnotationHelper.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Annotation
+#else
 namespace Microsoft.OData.Client.Annotation
+#endif
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Runtime.CompilerServices;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
 

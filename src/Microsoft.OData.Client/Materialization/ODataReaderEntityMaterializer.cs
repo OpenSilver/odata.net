@@ -1,16 +1,30 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataReaderEntityMaterializer.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
     using Microsoft.OData.Edm;
+#if OPENSILVER
+    using DSClient = System.Data.Client;
+#else
     using DSClient = Microsoft.OData.Client;
+#endif
 
     /// <summary>
     /// Materializes feeds and entities from an ODataReader

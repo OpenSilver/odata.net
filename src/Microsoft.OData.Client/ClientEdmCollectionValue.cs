@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System.Collections.Generic;
     using System.Diagnostics;

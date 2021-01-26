@@ -1,17 +1,28 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="MaterializerEntry.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+    using DSClient = System.Data.Client;
+#else
     using Microsoft.OData.Client.Metadata;
     using DSClient = Microsoft.OData.Client;
+#endif
 
     /// <summary>
     /// Materializer state for a given ODataResource

@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="DataStringEscapeBuilder.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
@@ -7,7 +7,12 @@
 #if ODATA_SERVICE
 namespace Microsoft.OData.Service.Serializers
 #else
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 #endif
 {
     using System;

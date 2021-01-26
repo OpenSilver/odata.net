@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces
 
@@ -16,7 +21,12 @@ namespace Microsoft.OData.Client
     using System.Linq;
     using System.Linq.Expressions;
     using System.Text;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using Microsoft.OData.UriParser.Aggregation;
 
     #endregion Namespaces

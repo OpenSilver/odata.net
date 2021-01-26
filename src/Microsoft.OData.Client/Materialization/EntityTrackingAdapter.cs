@@ -1,16 +1,32 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="EntityTrackingAdapter.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Diagnostics;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+    using DSClient = System.Data.Client;
+#else
     using Microsoft.OData.Client.Metadata;
     using DSClient = Microsoft.OData.Client;
+#endif
 
     /// <summary>
     /// Determines if there is an existing entity or whether a new one is created

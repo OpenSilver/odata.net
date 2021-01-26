@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="SaveResult.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces
 
@@ -17,8 +22,18 @@ namespace Microsoft.OData.Client
     using System.Text;
     using System.Collections.Generic;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Materialization;
+#else
     using Microsoft.OData.Client.Materialization;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
 
     #endregion Namespaces
 

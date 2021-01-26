@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataPropertyConverter.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections;
@@ -14,7 +19,12 @@ namespace Microsoft.OData.Client
     using Microsoft.OData;
     using Microsoft.OData.Json;
     using Microsoft.OData.Metadata;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using Microsoft.OData.Edm;
 
     /// <summary>

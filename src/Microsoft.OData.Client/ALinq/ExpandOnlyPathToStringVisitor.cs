@@ -1,15 +1,25 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ExpandOnlyPathToStringVisitor.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Diagnostics;
     using System.Text;
+
+#if OPENSILVER
+    using System.Data.Client.ALinq.UriParser;
+#else
     using Microsoft.OData.Client.ALinq.UriParser;
+#endif
 
     /// <summary>
     /// Build a string based on a path that contains only expands.

@@ -1,18 +1,33 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataLoadNavigationPropertyMaterializer.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     #region Namespaces
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using Microsoft.OData.Edm;
     #endregion
 

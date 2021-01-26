@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataEntityMaterializer.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Collections;
@@ -14,10 +19,22 @@ namespace Microsoft.OData.Client.Materialization
     using System.Linq.Expressions;
     using System.Reflection;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+    using DSClient = System.Data.Client;
+#else
     using Microsoft.OData.Client.Metadata;
-    using Microsoft.OData.Edm;
     using DSClient = Microsoft.OData.Client;
+#endif
+    using Microsoft.OData.Edm;
+    
 
     /// <summary>
     /// Used to materialize entities from a <see cref="ODataResource"/> objects.

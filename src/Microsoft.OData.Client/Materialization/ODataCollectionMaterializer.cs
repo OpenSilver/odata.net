@@ -1,20 +1,39 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataCollectionMaterializer.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using Microsoft.OData;
     using Microsoft.OData.Edm;
+#if OPENSILVER
+    using DSClient = System.Data.Client;
+#else
     using DSClient = Microsoft.OData.Client;
+#endif
 
     /// <summary>
     /// Used to materialize a collection of primitive or complex values from an <see cref="ODataCollectionMaterializer"/>.

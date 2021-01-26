@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     /// <summary>Represents the versions of the Open Data Protocol (OData) that the data service may support. </summary>
     public enum ODataProtocolVersion

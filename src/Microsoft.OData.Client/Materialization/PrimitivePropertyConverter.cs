@@ -4,12 +4,18 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Diagnostics;
     using System.Globalization;
     using System.Xml.Linq;
+    using Microsoft.OData;
     using Microsoft.Spatial;
 
     /// <summary>

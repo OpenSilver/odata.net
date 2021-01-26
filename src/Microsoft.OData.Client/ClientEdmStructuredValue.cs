@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections;
@@ -12,7 +17,12 @@ namespace Microsoft.OData.Client
     using System.Diagnostics;
     using System.Globalization;
     using System.Linq;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
 

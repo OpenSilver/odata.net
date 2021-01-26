@@ -4,13 +4,23 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using Microsoft.OData;
+#if OPENSILVER
+    using ClientStrings = System.Data.Client.Strings;
+#else
     using ClientStrings = Microsoft.OData.Client.Strings;
+#endif
+
 
     /// <summary>
     /// Class that holds a variety of events for writing the payload from the OData to the wire

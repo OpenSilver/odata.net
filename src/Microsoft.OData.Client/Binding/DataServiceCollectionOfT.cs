@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="DataServiceCollectionOfT.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces
 
@@ -14,7 +19,12 @@ namespace Microsoft.OData.Client
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Threading;
+
+#if OPENSILVER
+    using System.Data.Client.Materialization;
+#else
     using Microsoft.OData.Client.Materialization;
+#endif
 
     #endregion Namespaces
 

@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ClientEdmModel.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces.
 
@@ -15,18 +20,29 @@ namespace Microsoft.OData.Client
     using System.Globalization;
     using System.Linq;
     using System.Reflection;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Providers;
+    using c = System.Data.Client;
+#else
     using Microsoft.OData.Client.Providers;
+    using c = Microsoft.OData.Client;
+#endif
     using Microsoft.OData;
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
-    using c = Microsoft.OData.Client;
 
 #if PORTABLELIB && WINDOWSPHONE
     // Windows Phone 8.0 doesn't support ConcurrentDictionary
     using ConcurrentEdmSchemaDictionary = System.Collections.Generic.Dictionary<string, Edm.IEdmSchemaElement>;
 #else
-    using ConcurrentEdmSchemaDictionary = System.Collections.Concurrent.ConcurrentDictionary<string, Edm.IEdmSchemaElement>;
+    using ConcurrentEdmSchemaDictionary = System.Collections.Concurrent.ConcurrentDictionary<string, Microsoft.OData.Edm.IEdmSchemaElement>;
 #endif
 
     #endregion Namespaces.

@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="EdmValueWriter.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
@@ -15,7 +15,12 @@ using Microsoft.OData.Edm.Vocabularies;
 namespace Microsoft.OData.Service
 #else
 #if ODATA_CLIENT
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 #else
 #if ODATA_CORE
 namespace Microsoft.OData

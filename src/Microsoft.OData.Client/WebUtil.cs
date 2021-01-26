@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="WebUtil.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections;
@@ -16,7 +21,12 @@ namespace Microsoft.OData.Client
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
 
     /// <summary>web utility functions</summary>
     internal static partial class WebUtil

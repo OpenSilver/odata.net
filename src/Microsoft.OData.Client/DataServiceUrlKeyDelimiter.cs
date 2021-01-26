@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +18,11 @@ namespace Microsoft.OData.Client
     using System.Text;
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
+#if OPENSILVER
+    using ErrorStrings = System.Data.Client.Strings;
+#else
     using ErrorStrings = Microsoft.OData.Client.Strings;
+#endif
 
     /// <summary>
     /// Component for controlling what convention set is used for generating URLs.
@@ -89,7 +98,11 @@ namespace Microsoft.OData.Client
                 object propertyValue = getValueForProperty(p);
                 if (propertyValue == null)
                 {
+#if OPENSILVER
+                    throw Error.InvalidOperation(System.Data.Client.Strings.Context_NullKeysAreNotSupported(getPropertyName(p)));
+#else
                     throw Error.InvalidOperation(Microsoft.OData.Client.Strings.Context_NullKeysAreNotSupported(getPropertyName(p)));
+#endif
                 }
 
                 return propertyValue;

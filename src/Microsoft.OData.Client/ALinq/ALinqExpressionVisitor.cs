@@ -7,7 +7,12 @@
 #if ODATA_SERVICE
 namespace Microsoft.OData.Service
 #else
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 #endif
 {
     using System;

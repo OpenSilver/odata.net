@@ -1,15 +1,21 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="CommonUtil.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
 #if ODATA_CLIENT
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 #else
 namespace Microsoft.OData.Service
 #endif
 {
+    using Microsoft.OData;
     using System;
     using System.Diagnostics;
     using System.Globalization;

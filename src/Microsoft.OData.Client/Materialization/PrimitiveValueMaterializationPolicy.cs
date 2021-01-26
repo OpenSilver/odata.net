@@ -1,15 +1,30 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="PrimitiveValueMaterializationPolicy.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Diagnostics;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
+#if OPENSILVER
+    using DSClient = System.Data.Client;
+    using Microsoft.OData;
+#else
     using DSClient = Microsoft.OData.Client;
+#endif
 
     /// <summary>
     /// Creates a policy that is used for materializing Primitive values

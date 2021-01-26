@@ -11,15 +11,25 @@ using Microsoft.OData.Edm.Vocabularies;
 using Microsoft.Spatial;
 #if ODATA_CLIENT
     using Microsoft.OData;
+#if OPENSILVER
+    using ErrorStrings = System.Data.Client.Strings;
+    using PlatformHelpers = System.Data.Client.PlatformHelper;
+#else
     using ErrorStrings = Microsoft.OData.Client.Strings;
     using PlatformHelpers = Microsoft.OData.Client.PlatformHelper;
+#endif
 #else
 using ErrorStrings = Microsoft.OData.Strings;
 using PlatformHelpers = Microsoft.OData.PlatformHelper;
 #endif
 
 #if ODATA_CLIENT
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 #else
 namespace Microsoft.OData.Evaluation
 #endif

@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataUriBuilder.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
@@ -12,7 +12,12 @@ using Microsoft.OData.Edm.Vocabularies;
 #endif
 
 #if ODATA_CLIENT
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 #else
 namespace Microsoft.OData.Evaluation
 #endif

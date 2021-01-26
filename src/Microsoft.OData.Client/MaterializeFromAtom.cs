@@ -1,18 +1,33 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="MaterializeFromAtom.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     #region Namespaces
 
     using System;
     using System.Collections;
     using System.Collections.Generic;
+
+#if OPENSILVER
+    using System.Data.Client.Materialization;
+#else
     using Microsoft.OData.Client.Materialization;
+#endif
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
     using System.Diagnostics;
     using System.Xml;
     using Microsoft.OData;

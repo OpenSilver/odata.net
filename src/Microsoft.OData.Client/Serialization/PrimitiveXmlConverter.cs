@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="PrimitiveXmlConverter.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
@@ -20,7 +20,12 @@
  *  For new types, the TokenizeFromXml/TokenizeFromText on the PrimitiveTypeConverter
  *  should be overriden to give the correct behavior.
  */
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Diagnostics;

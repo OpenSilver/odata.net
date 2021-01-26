@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ClientTypeAnnotation.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Metadata
+#else
 namespace Microsoft.OData.Client.Metadata
+#endif
 {
     #region Namespaces
 
@@ -176,7 +181,11 @@ namespace Microsoft.OData.Client.Metadata
                 string propertyClientName = ClientTypeUtil.GetClientPropertyName(this.ElementType, propertyName, undeclaredPropertyBehavior);
                 if ((string.IsNullOrEmpty(propertyClientName) || !this.clientPropertyCache.TryGetValue(propertyClientName, out property)) && (undeclaredPropertyBehavior == UndeclaredPropertyBehavior.ThrowException))
                 {
+#if OPENSILVER
+                    throw System.Data.Client.Error.InvalidOperation(System.Data.Client.Strings.ClientType_MissingProperty(this.ElementTypeName, propertyName));
+#else
                     throw Microsoft.OData.Client.Error.InvalidOperation(Microsoft.OData.Client.Strings.ClientType_MissingProperty(this.ElementTypeName, propertyName));
+#endif
                 }
             }
 
@@ -256,8 +265,13 @@ namespace Microsoft.OData.Client.Metadata
                 ClientPropertyAnnotation mediaProperty = this.Properties().SingleOrDefault(p => p.PropertyName == mediaEntryAttribute.MediaMemberName);
                 if (mediaProperty == null)
                 {
+#if OPENSILVER
+                    throw System.Data.Client.Error.InvalidOperation(System.Data.Client.Strings.ClientType_MissingMediaEntryProperty(
+                        this.ElementTypeName, mediaEntryAttribute.MediaMemberName));
+#else
                     throw Microsoft.OData.Client.Error.InvalidOperation(Microsoft.OData.Client.Strings.ClientType_MissingMediaEntryProperty(
                         this.ElementTypeName, mediaEntryAttribute.MediaMemberName));
+#endif
                 }
 
                 this.mediaDataMember = mediaProperty;

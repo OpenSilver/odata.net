@@ -1,16 +1,30 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ODataEntriesEntityMaterializer.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Materialization
+#else
 namespace Microsoft.OData.Client.Materialization
+#endif
 {
     using System;
     using System.Collections.Generic;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
     using Microsoft.OData;
+#if OPENSILVER
+    using DSClient = System.Data.Client;
+#else
     using DSClient = Microsoft.OData.Client;
+#endif
 
     /// <summary>
     /// Materializes entities from a sequence of ODataResource objects

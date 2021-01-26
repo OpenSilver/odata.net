@@ -4,13 +4,23 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
+#if OPENSILVER
+    using System.Data.Client;
+#else
     using Microsoft.OData.Client;
+#endif
 
     /// <summary> Response from an Invoke call. </summary>
     public class InvokeResponse : OperationResponse

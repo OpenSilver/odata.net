@@ -4,13 +4,23 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Materialization;
+#else
     using Microsoft.OData.Client.Materialization;
+#endif
 
     /// <summary>
     /// Class that is responsible for configuration of actions that are invoked from a response

@@ -5,7 +5,12 @@
 //---------------------------------------------------------------------
 
 #if ODATA_CLIENT
+
+#if OPENSILVER
+namespace System.Data.Client.Providers
+#else
 namespace Microsoft.OData.Client.Providers
+#endif
 #else
 namespace Microsoft.OData.Service.Providers
 #endif

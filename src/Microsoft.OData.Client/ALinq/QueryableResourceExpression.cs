@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="QueryableResourceExpression.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections.Generic;
@@ -371,7 +376,7 @@ namespace Microsoft.OData.Client
             this.keyPredicateConjuncts.Clear();
         }
 
-        internal void AddApply(Expression aggregateExpr, OData.UriParser.Aggregation.AggregationMethod aggregationMethod)
+        internal void AddApply(Expression aggregateExpr, Microsoft.OData.UriParser.Aggregation.AggregationMethod aggregationMethod)
         {
             if (this.OrderBy != null)
             {

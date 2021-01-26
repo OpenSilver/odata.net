@@ -22,7 +22,11 @@ namespace Microsoft.OData.Metadata
     using ErrorStrings = Microsoft.OData.Service.Strings;
 #endif
 #if ODATA_CLIENT
+#if OPENSILVER
+    using ErrorStrings = System.Data.Client.Strings;
+#else
     using ErrorStrings = Microsoft.OData.Client.Strings;
+#endif
 #endif
 #if !ODATA_SERVICE && !ODATA_CLIENT
     using Microsoft.OData.JsonLight;

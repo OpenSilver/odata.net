@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="DataServiceQueryOfT.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.Collections;
@@ -183,7 +188,9 @@ namespace Microsoft.OData.Client
         /// </summary>
         /// <param name="nextSegment">Name of the action.</param>
         /// <returns>The new URI string.</returns>
+#pragma warning disable CA1055 // Uri return values should not be strings
         public virtual string AppendRequestUri(string nextSegment)
+#pragma warning restore CA1055 // Uri return values should not be strings
         {
             Uri requestUri = this.RequestUri;
             return UriUtil.UriToString(requestUri).Replace(requestUri.AbsolutePath, requestUri.AbsolutePath + UriHelper.FORWARDSLASH + nextSegment);

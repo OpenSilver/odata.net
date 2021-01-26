@@ -1,10 +1,15 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="ClientPropertyAnnotation.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client.Metadata
+#else
 namespace Microsoft.OData.Client.Metadata
+#endif
 {
     #region Namespaces.
 
@@ -14,7 +19,12 @@ namespace Microsoft.OData.Client.Metadata
     using System.Linq.Expressions;
     using System.Reflection;
     using Microsoft.OData.Edm;
+#if OPENSILVER
+    using c = System.Data.Client;
+#else
     using c = Microsoft.OData.Client;
+#endif
+
 
     #endregion Namespaces.
 

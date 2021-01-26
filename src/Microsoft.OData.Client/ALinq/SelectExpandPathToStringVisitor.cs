@@ -1,13 +1,23 @@
-﻿//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 // <copyright file="SelectExpandPathToStringVisitor.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
+
+#if OPENSILVER
+    using System.Data.Client.ALinq.UriParser;
+#else
     using Microsoft.OData.Client.ALinq.UriParser;
+#endif
     using Microsoft.OData;
 
     /// <summary>

@@ -4,7 +4,12 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+
+#if OPENSILVER
+namespace System.Data.Client
+#else
 namespace Microsoft.OData.Client
+#endif
 {
     using System;
     using System.CodeDom.Compiler;
@@ -14,7 +19,12 @@ namespace Microsoft.OData.Client
     using System.Xml.Linq;
     using System.Net;
     using Microsoft.OData;
+
+#if OPENSILVER
+    using System.Data.Client.Metadata;
+#else
     using Microsoft.OData.Client.Metadata;
+#endif
 
     /// <summary>
     /// Class which wraps the dataservicecontext and exposes information required for

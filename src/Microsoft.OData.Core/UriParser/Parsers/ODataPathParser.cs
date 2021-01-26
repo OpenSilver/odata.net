@@ -1184,7 +1184,7 @@ namespace Microsoft.OData.UriParser
             /*
              * For Non-KeyAsSegment, try to handle it as a key property value, unless it was preceded by an escape - marker segment('$').
              * For KeyAsSegment, the following precedence rules should be supported[ODATA - 799]:
-             * Try to match an OData segment(starting with “$”).
+             * Try to match an OData segment(starting with ï¿½$ï¿½).
              *   - Note: $filter path segment is a special case that has the format "$filter(@a)", where @a represents an alias.
              * Try to match an alias - qualified bound action name, bound function overload, or type name.
              * Try to match a namespace-qualified bound action name, bound function overload, or type name.
