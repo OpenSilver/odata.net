@@ -21,7 +21,11 @@ namespace Microsoft.OData.Client
     /// <summary>
     /// This class represents the contract WCF Data Services client with the request message.
     /// </summary>
+#if OPENSILVER
     public abstract class DataServiceClientRequestMessage : IODataRequestMessage
+#else
+    public abstract class DataServiceClientRequestMessage : IODataRequestMessage
+#endif
     {
         /// <summary>Http method.</summary>
         private readonly string actualHttpMethod;
@@ -30,7 +34,7 @@ namespace Microsoft.OData.Client
         /// Initializes a new instance of the <see cref="DataServiceClientRequestMessage"/> class.
         /// </summary>
         /// <param name="actualMethod">The actual method.</param>
-        public DataServiceClientRequestMessage(string actualMethod)
+        protected DataServiceClientRequestMessage(string actualMethod)
         {
             this.actualHttpMethod = actualMethod;
         }
