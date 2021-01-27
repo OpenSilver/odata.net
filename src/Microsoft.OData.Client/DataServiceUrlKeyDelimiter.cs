@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -19,7 +19,7 @@ namespace Microsoft.OData.Client
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
 #if OPENSILVER
-    using ErrorStrings = System.Data.Client.Strings;
+    using ErrorStrings = System.Data.Services.Client.Strings;
 #else
     using ErrorStrings = Microsoft.OData.Client.Strings;
 #endif
@@ -99,7 +99,7 @@ namespace Microsoft.OData.Client
                 if (propertyValue == null)
                 {
 #if OPENSILVER
-                    throw Error.InvalidOperation(System.Data.Client.Strings.Context_NullKeysAreNotSupported(getPropertyName(p)));
+                    throw Error.InvalidOperation(System.Data.Services.Client.Strings.Context_NullKeysAreNotSupported(getPropertyName(p)));
 #else
                     throw Error.InvalidOperation(Microsoft.OData.Client.Strings.Context_NullKeysAreNotSupported(getPropertyName(p)));
 #endif

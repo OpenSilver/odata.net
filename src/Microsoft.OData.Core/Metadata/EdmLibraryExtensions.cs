@@ -23,7 +23,7 @@ namespace Microsoft.OData.Metadata
 #endif
 #if ODATA_CLIENT
 #if OPENSILVER
-    using ErrorStrings = System.Data.Client.Strings;
+    using ErrorStrings = System.Data.Services.Client.Strings;
 #else
     using ErrorStrings = Microsoft.OData.Client.Strings;
 #endif

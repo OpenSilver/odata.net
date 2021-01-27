@@ -7,7 +7,7 @@
 #if ODATA_CLIENT
 
 #if OPENSILVER
-namespace System.Data.Client.Providers
+namespace System.Data.Services.Client.Providers
 #else
 namespace Microsoft.OData.Client.Providers
 #endif

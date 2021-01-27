@@ -11,7 +11,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client {
+namespace System.Data.Services.Client {
 #else
 namespace Microsoft.OData.Client {
 #endif

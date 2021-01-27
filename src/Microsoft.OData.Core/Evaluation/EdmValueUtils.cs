@@ -12,8 +12,8 @@ using Microsoft.Spatial;
 #if ODATA_CLIENT
     using Microsoft.OData;
 #if OPENSILVER
-    using ErrorStrings = System.Data.Client.Strings;
-    using PlatformHelpers = System.Data.Client.PlatformHelper;
+    using ErrorStrings = System.Data.Services.Client.Strings;
+    using PlatformHelpers = System.Data.Services.Client.PlatformHelper;
 #else
     using ErrorStrings = Microsoft.OData.Client.Strings;
     using PlatformHelpers = Microsoft.OData.Client.PlatformHelper;
@@ -26,7 +26,7 @@ using PlatformHelpers = Microsoft.OData.PlatformHelper;
 #if ODATA_CLIENT
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif

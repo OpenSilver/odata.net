@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -24,9 +24,9 @@ namespace Microsoft.OData.Client
     using Microsoft.OData;
 
 #if OPENSILVER
-    using System.Data.Client.Metadata;
-    using NonSystemToken = System.Data.Client.ALinq.UriParser.NonSystemToken;
-    using PathSegmentToken = System.Data.Client.ALinq.UriParser.PathSegmentToken;
+    using System.Data.Services.Client.Metadata;
+    using NonSystemToken = System.Data.Services.Client.ALinq.UriParser.NonSystemToken;
+    using PathSegmentToken = System.Data.Services.Client.ALinq.UriParser.PathSegmentToken;
 #else
     using Microsoft.OData.Client.Metadata;
     using NonSystemToken = Microsoft.OData.Client.ALinq.UriParser.NonSystemToken;

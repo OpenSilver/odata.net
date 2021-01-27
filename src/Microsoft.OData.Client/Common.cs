@@ -7,7 +7,7 @@
 #if ODATA_CLIENT
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -26,7 +26,7 @@ namespace Microsoft.OData.Service
 #if !ODATA_CLIENT
 
 #if OPENSILVER
-    using System.Data.Client;
+    using System.Data.Services.Client;
 #else
     using Microsoft.OData.Client;
 #endif

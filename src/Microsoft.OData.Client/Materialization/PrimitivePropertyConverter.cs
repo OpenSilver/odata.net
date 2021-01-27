@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client.Materialization
+namespace System.Data.Services.Client.Materialization
 #else
 namespace Microsoft.OData.Client.Materialization
 #endif

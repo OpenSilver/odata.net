@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -16,7 +16,7 @@ namespace Microsoft.OData.Client
     using System.Diagnostics;
     using Microsoft.OData;
 #if OPENSILVER
-    using ClientStrings = System.Data.Client.Strings;
+    using ClientStrings = System.Data.Services.Client.Strings;
 #else
     using ClientStrings = Microsoft.OData.Client.Strings;
 #endif

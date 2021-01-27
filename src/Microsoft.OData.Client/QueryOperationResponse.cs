@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -90,7 +90,7 @@ namespace Microsoft.OData.Client
                 if (this.Error != null)
                 {
 #if OPENSILVER
-                    throw System.Data.Client.Error.InvalidOperation(Strings.Context_BatchExecuteError, this.Error);
+                    throw System.Data.Services.Client.Error.InvalidOperation(Strings.Context_BatchExecuteError, this.Error);
 #else
                     throw Microsoft.OData.Client.Error.InvalidOperation(Strings.Context_BatchExecuteError, this.Error);
 #endif

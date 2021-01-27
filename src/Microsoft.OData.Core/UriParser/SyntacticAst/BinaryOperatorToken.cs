@@ -9,7 +9,7 @@ using Microsoft.OData.UriParser;
 #if ODATA_CLIENT
 
 #if OPENSILVER
-namespace System.Data.Client.ALinq.UriParser
+namespace System.Data.Services.Client.ALinq.UriParser
 #else
 namespace Microsoft.OData.Client.ALinq.UriParser
 #endif

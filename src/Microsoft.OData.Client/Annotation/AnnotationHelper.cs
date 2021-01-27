@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client.Annotation
+namespace System.Data.Services.Client.Annotation
 #else
 namespace Microsoft.OData.Client.Annotation
 #endif
@@ -18,7 +18,7 @@ namespace Microsoft.OData.Client.Annotation
     using System.Runtime.CompilerServices;
 
 #if OPENSILVER
-    using System.Data.Client.Metadata;
+    using System.Data.Services.Client.Metadata;
 #else
     using Microsoft.OData.Client.Metadata;
 #endif

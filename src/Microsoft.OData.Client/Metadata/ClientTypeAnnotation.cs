@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client.Metadata
+namespace System.Data.Services.Client.Metadata
 #else
 namespace Microsoft.OData.Client.Metadata
 #endif
@@ -182,7 +182,7 @@ namespace Microsoft.OData.Client.Metadata
                 if ((string.IsNullOrEmpty(propertyClientName) || !this.clientPropertyCache.TryGetValue(propertyClientName, out property)) && (undeclaredPropertyBehavior == UndeclaredPropertyBehavior.ThrowException))
                 {
 #if OPENSILVER
-                    throw System.Data.Client.Error.InvalidOperation(System.Data.Client.Strings.ClientType_MissingProperty(this.ElementTypeName, propertyName));
+                    throw System.Data.Services.Client.Error.InvalidOperation(System.Data.Services.Client.Strings.ClientType_MissingProperty(this.ElementTypeName, propertyName));
 #else
                     throw Microsoft.OData.Client.Error.InvalidOperation(Microsoft.OData.Client.Strings.ClientType_MissingProperty(this.ElementTypeName, propertyName));
 #endif
@@ -266,7 +266,7 @@ namespace Microsoft.OData.Client.Metadata
                 if (mediaProperty == null)
                 {
 #if OPENSILVER
-                    throw System.Data.Client.Error.InvalidOperation(System.Data.Client.Strings.ClientType_MissingMediaEntryProperty(
+                    throw System.Data.Services.Client.Error.InvalidOperation(System.Data.Services.Client.Strings.ClientType_MissingMediaEntryProperty(
                         this.ElementTypeName, mediaEntryAttribute.MediaMemberName));
 #else
                     throw Microsoft.OData.Client.Error.InvalidOperation(Microsoft.OData.Client.Strings.ClientType_MissingMediaEntryProperty(

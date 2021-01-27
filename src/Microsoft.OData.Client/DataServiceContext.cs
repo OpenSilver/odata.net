@@ -9,7 +9,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -31,14 +31,14 @@ namespace Microsoft.OData.Client
     using Microsoft.OData;
 
 #if OPENSILVER
-    using System.Data.Client.Annotation;
+    using System.Data.Services.Client.Annotation;
 #else
     using Microsoft.OData.Client.Annotation;
 #endif
 
 #if OPENSILVER
-    using System.Data.Client.Metadata;
-    using ClientStrings = System.Data.Client.Strings;
+    using System.Data.Services.Client.Metadata;
+    using ClientStrings = System.Data.Services.Client.Strings;
 #else
     using Microsoft.OData.Client.Metadata;
     using ClientStrings = Microsoft.OData.Client.Strings;

@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client.Metadata
+namespace System.Data.Services.Client.Metadata
 #else
 namespace Microsoft.OData.Client.Metadata
 #endif
@@ -19,7 +19,7 @@ namespace Microsoft.OData.Client.Metadata
     using System.Linq;
     using System.Reflection;
 #if OPENSILVER
-    using c = System.Data.Client;
+    using c = System.Data.Services.Client;
 #else
     using c = Microsoft.OData.Client;
 #endif

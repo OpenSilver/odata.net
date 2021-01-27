@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client.Materialization
+namespace System.Data.Services.Client.Materialization
 #else
 namespace Microsoft.OData.Client.Materialization
 #endif
@@ -15,13 +15,13 @@ namespace Microsoft.OData.Client.Materialization
     using Microsoft.OData;
 
 #if OPENSILVER
-    using System.Data.Client;
+    using System.Data.Services.Client;
 #else
     using Microsoft.OData.Client;
 #endif
     using Microsoft.OData.Edm;
 #if OPENSILVER
-    using DSClient = System.Data.Client;
+    using DSClient = System.Data.Services.Client;
 #else
     using DSClient = Microsoft.OData.Client;
 #endif

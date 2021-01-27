@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Client
+namespace System.Data.Services.Client
 #else
 namespace Microsoft.OData.Client
 #endif
@@ -21,13 +21,13 @@ namespace Microsoft.OData.Client
     using System.Reflection;
 
 #if OPENSILVER
-    using System.Data.Client.ALinq.UriParser;
+    using System.Data.Services.Client.ALinq.UriParser;
 #else
     using Microsoft.OData.Client.ALinq.UriParser;
 #endif
 
 #if OPENSILVER
-    using System.Data.Client.Metadata;
+    using System.Data.Services.Client.Metadata;
 #else
     using Microsoft.OData.Client.Metadata;
 #endif
