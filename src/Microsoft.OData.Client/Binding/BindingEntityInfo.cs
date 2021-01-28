@@ -22,6 +22,7 @@ namespace Microsoft.OData.Client
 
 #if OPENSILVER
     using System.Data.Services.Client.Metadata;
+    using System.Data.Services.Common;
 #else
     using Microsoft.OData.Client.Metadata;
 #endif

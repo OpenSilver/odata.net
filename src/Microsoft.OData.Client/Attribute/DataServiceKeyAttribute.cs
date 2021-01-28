@@ -1,6 +1,6 @@
 
 #if OPENSILVER
-namespace System.Data.Services.Client
+namespace System.Data.Services.Common
 {
     using System;
 

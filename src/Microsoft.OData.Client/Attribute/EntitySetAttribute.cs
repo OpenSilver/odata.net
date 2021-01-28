@@ -6,7 +6,7 @@
 
 
 #if OPENSILVER
-namespace System.Data.Services.Client
+namespace System.Data.Services.Common
 #else
 namespace Microsoft.OData.Client
 #endif
