@@ -45,6 +45,7 @@ namespace Microsoft.OData.Client
 #endif
     using Microsoft.OData.Edm;
     using Microsoft.OData.Edm.Vocabularies;
+    using System.Data.Services.Common;
 
     #endregion Namespaces
     /// <summary>
@@ -260,6 +261,15 @@ namespace Microsoft.OData.Client
             : this(serviceRoot, maxProtocolVersion, ClientEdmModelCache.GetModel(maxProtocolVersion))
         {
         }
+
+#if OPENSILVER
+        public DataServiceContext(Uri serviceRoot, DataServiceProtocolVersion maxProtocolVersion)
+            //: this(serviceRoot, maxProtocolVersion, ClientEdmModelCache.GetModel(maxProtocolVersion))
+            : this()
+        {
+        }
+#else
+#endif
 
         /// <summary>
         /// Instantiates a new context with the specified <paramref name="serviceRoot"/> Uri.
