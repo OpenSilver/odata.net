@@ -265,8 +265,9 @@ namespace Microsoft.OData.Client
 #if OPENSILVER
         public DataServiceContext(Uri serviceRoot, DataServiceProtocolVersion maxProtocolVersion)
             //: this(serviceRoot, maxProtocolVersion, ClientEdmModelCache.GetModel(maxProtocolVersion))
-            : this()
+            :  this(serviceRoot, ODataProtocolVersion.V4)
         {
+            
         }
 #else
 #endif
