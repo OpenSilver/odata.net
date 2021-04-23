@@ -1,70 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0F0FE3FE-7A09-461C-85D4-2D4CBF58113F}</ProjectGuid>
-    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Microsoft.Data.OData</RootNamespace>
-    <AssemblyName>Microsoft.Data.OData</AssemblyName>
-    <DefineConstants>SILVERLIGHT;ODATALIB</DefineConstants>
-    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
-    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
-    <SilverlightApplication>false</SilverlightApplication>
-    <ValidateXaml>true</ValidateXaml>
-    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
-  </PropertyGroup>
-  <!-- This property group is only here to support building this project using the 
-       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
-       to set the TargetFrameworkVersion to v3.5 -->
-  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
-    <ProjectReference Include="..\..\Spatial\Silverlight\System.Spatial.csproj">
-      <Project>{2C123656-AD5F-4360-93C2-C7F159E160D9}</Project>
-      <Name>System.Spatial</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\EdmLib\Silverlight\Microsoft.Data.Edm.csproj">
-      <Project>{50A5667C-6663-440A-8F86-609A4E565159}</Project>
-      <Name>Microsoft.Data.Edm</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<AssemblyName>Microsoft.Data.OData</AssemblyName>
+		<RootNamespace>Microsoft.Data.OData</RootNamespace>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<DefineConstants>SILVERLIGHT;ODATALIB;OPENSILVER</DefineConstants>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    </PropertyGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\..\Spatial\Silverlight\System.Spatial.OpenSilver.csproj" />
+		<ProjectReference Include="..\..\EdmLib\Silverlight\Microsoft.Data.Edm.OpenSilver.csproj" />
+    </ItemGroup>
+	
+	<ItemGroup>
     <Compile Include="Microsoft\Data\OData\Evaluation\LiteralFormatter.cs" />
     <Compile Include="Microsoft\Data\OData\Evaluation\KeySerializer.cs" />
     <Compile Include="Microsoft\Data\OData\Evaluation\UrlConvention.cs" />
@@ -664,20 +621,9 @@
   <ItemGroup>
     <None Include="Microsoft.Data.OData.txt" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
-        <SilverlightProjectProperties />
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
+  
   <Target Name="BeforeBuild">
     <GenerateResource Sources="Microsoft.Data.OData.txt" OutputResources="Microsoft.Data.OData.resources" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  
 </Project>

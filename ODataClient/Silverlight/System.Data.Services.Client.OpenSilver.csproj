@@ -1,74 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <AssemblyName>Microsoft.Data.Services.Client</AssemblyName>
-    <RootNamespace>Microsoft.Data.Services.Client</RootNamespace>
-    <DefineConstants>ASTORIA_CLIENT;PORTABLELIB;</DefineConstants>
-    <OutputType>Library</OutputType>
-    <ProjectGuid>{B2667D84-F31E-482D-A604-1323905D582F}</ProjectGuid>
-    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04Ec0-301F-11d3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
-    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
-    <SilverlightApplication>false</SilverlightApplication>
-    <ValidateXaml>true</ValidateXaml>
-    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib.dll" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Windows" />
-    <ProjectReference Include="..\..\ODataLib\EdmLib\Silverlight\Microsoft.Data.Edm.csproj">
-      <Project>{50A5667C-6663-440A-8F86-609A4E565159}</Project>
-      <Name>Microsoft.Data.Edm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ODataLib\Spatial\Silverlight\System.Spatial.csproj">
-      <Project>{2C123656-AD5F-4360-93C2-C7F159E160D9}</Project>
-      <Name>System.Spatial</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ODataLib\OData\Silverlight\Microsoft.Data.OData.csproj">
-      <Project>{0F0FE3FE-7A09-461C-85D4-2D4CBF58113F}</Project>
-      <Name>Microsoft.Data.OData</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<AssemblyName>Microsoft.Data.Services.Client</AssemblyName>
+		<RootNamespace>Microsoft.Data.Services.Client</RootNamespace>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<DefineConstants>ASTORIA_CLIENT;PORTABLELIB;OPENSILVER;SILVERLIGHT</DefineConstants>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    </PropertyGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\..\ODataLib\EdmLib\Silverlight\Microsoft.Data.Edm.OpenSilver.csproj" />
+		<ProjectReference Include="..\..\ODataLib\Spatial\Silverlight\System.Spatial.OpenSilver.csproj" />
+		<ProjectReference Include="..\..\ODataLib\OData\Silverlight\Microsoft.Data.OData.OpenSilver.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
     <Compile Include="System\Data\Services\Client\DebugUtils.cs" />
     <Compile Include="System\Data\Services\Client\EdmValueUtils.cs" />
     <Compile Include="System\Data\Services\Client\ODataEntityMetadataBuilder.cs" />
@@ -341,15 +295,9 @@
       <LogicalName>System.Data.Services.Client.resources</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  
   <Target Name="BeforeBuild">
     <GenerateResource Sources="System.Data.Services.Client.txt" OutputResources="System.Data.Services.Client.resources" />
   </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
-        <SilverlightProjectProperties />
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
+
 </Project>
